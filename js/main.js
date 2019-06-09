@@ -140,15 +140,15 @@ class Slider {
 		const disableSliderInteractions = () => {
 			this.doneSliding = false;	
 			this.labels[0].parentElement.style.display = 'none';
-			this.slider.querySelector('.rightArrow').style.display = 'none';
-			this.slider.querySelector('.leftArrow').style.display = 'none';
+			this.slider.querySelector('.right-arrow').style.display = 'none';
+			this.slider.querySelector('.left-arrow').style.display = 'none';
 		};
 		
 		const enableSliderInteractions = () => {
 			this.doneSliding = true;
 			this.labels[0].parentElement.style.display = 'initial';
-			this.slider.querySelector('.rightArrow').style.display = 'initial';
-			this.slider.querySelector('.leftArrow').style.display = 'initial';
+			this.slider.querySelector('.right-arrow').style.display = 'initial';
+			this.slider.querySelector('.left-arrow').style.display = 'initial';
 		}
 		
 		disableSliderInteractions();
@@ -170,41 +170,53 @@ class Slider {
 	}
 	
 	getUserInput(target,type) {
+		console.log('ran');
 		if(this.doneSliding) {
-			if(type === 'click') {
-				if(target.tagName === 'IMG') {
-						for(let i=0;i<target.classList.length;i++) {
-							if(target.classList[i] === 'rightArrow') {
-									this.next();
-							}	else if(target.classList[i] === 'leftArrow') {
-									this.prev();			
-							} 
-						}
-				} else if(target.tagName === 'INPUT') {
-						this.refreshDOMElements();					
+			if(type === 'arrow') {
+				for(let i=0;i<target.classList.length;i++) {
+					if(target.classList[i] === 'right-arrow') {
+							this.next();
+					}	else if(target.classList[i] === 'left-arrow') {
+							this.prev();			
+					} 
 				}
+			} else if(type === 'trigger') {					
 			} else if(type === 'touch' && this.doneSliding) {
-						this.getSwipeDirection();
+					this.getSwipeDirection();
 			} 
 		}
 	}
 	
 	initialize() {
+		const leftArrow = document.querySelector('.left-arrow');
+		const rightArrow = document.querySelector('.right-arrow'); 
+		const sliderControls = document.querySelector('.slider_controls');
 		
-		this.intervalBar.setAttribute('class','slide-indicator');
-		this.slider.appendChild(this.intervalBar);
-		
-		this.slider.addEventListener('click',event => {
-				this.getUserInput(event.target,'click');
+		leftArrow.addEventListener('click', event => {
+			this.prev();
 		});
+		
+		rightArrow.addEventListener('click', event => {
+			this.next();
+		});
+		
+		sliderControls.addEventListener('click', event => {
+			this.refreshDOMElements();		
+		});
+		
 		this.slider.addEventListener('touchmove',event => {
 				this.swipeList.push(event.touches[0]);
 		});
+		
 		this.slider.addEventListener('touchend',event => {
 			if(this.swipeList.length > 0) {
 				this.getUserInput(event.target,'touch');
 			}
 		});
+		
+		// Add the interval bar
+		this.intervalBar.setAttribute('class','slide-indicator');
+		this.slider.appendChild(this.intervalBar);
 		// Update DOM elements to match current checked status
 		this.refreshDOMElements();
 	}

@@ -153,8 +153,8 @@ a,
 .btn,
 button,
 label,
-.rightArrow,
-.leftArrow {
+.right-arrow,
+.left-arrow {
     cursor: pointer;
 }
 
@@ -602,8 +602,8 @@ li.active .nav-icon .icon-path {
 	  background-image: linear-gradient(to right, #1695A3, #225378);
 }
 
-.rightArrow,
-.leftArrow {
+.right-arrow,
+.left-arrow {
 	position: absolute;
 	top: 45%;
 	width: 25px;
@@ -611,17 +611,17 @@ li.active .nav-icon .icon-path {
 	z-index: 10;
 }
 
-.rightArrow,
-.leftArrow {
+.right-arrow,
+.left-arrow {
 	opacity: 0;
 	transition: opacity .35s ease-in-out;
 }
 
-.rightArrow {
+.right-arrow {
 	right: 2.5%;
 }
 
-.leftArrow {
+.left-arrow svg {
 	left: 2.5%;
 	transform: rotate(180deg);
 }
@@ -1138,8 +1138,8 @@ main.two-column-even > aside {
 				line-height: 1.5;
 		}
 	
-		.slider:hover .rightArrow,
-		.slider:hover .leftArrow {
+		.slider:hover .right-arrow,
+		.slider:hover .left-arrow {
 			opacity: 1;
 		}
     
