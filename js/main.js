@@ -82,15 +82,22 @@ class Slider {
 	
 	next() {
 		this.nextSlide.checked = true;
-		this.refreshDOMElements();
+		this.refreshSliderElements();
 	}
 	
 	prev() {
 		this.prevSlide.checked = true;
-		this.refreshDOMElements();
+		this.refreshSliderElements();
 	}
 	
-	refreshDOMElements() {
+	updateSlideIndicator() {
+		for(let i=0;i<this.labels.length;i++) {
+		 this.labels[i].style.backgroundColor = 'rgba(119,119,119,.85)';		
+		}
+		this.labels[this.index].style.backgroundColor = '#CCC';	
+	}
+	
+	refreshSliderElements() {
 		const startInterval = () => {
 			const interval = () => {
 				if(this.intervalProgress < 100) {
@@ -123,13 +130,6 @@ class Slider {
 			this.intervalId = setInterval(interval,10);
 		}
 
-		const updateLabels = () => {
-			for(let i=0;i<this.labels.length;i++) {
-			 this.labels[i].style.backgroundColor = 'rgba(119,119,119,.85)';		
-			}
-			this.labels[this.index].style.backgroundColor = '#CCC';
-		}
-
 		const updatePreviousSlide = () => {
 			for(let i=0;i<this.slides.length;i++) {
 				this.slides[i].nextElementSibling.classList = 'slide';
@@ -140,25 +140,25 @@ class Slider {
 		const disableSliderInteractions = () => {
 			this.doneSliding = false;	
 			this.labels[0].parentElement.style.display = 'none';
-			this.slider.querySelector('.rightArrow').style.display = 'none';
-			this.slider.querySelector('.leftArrow').style.display = 'none';
+			this.slider.querySelector('.right-arrow').style.display = 'none';
+			this.slider.querySelector('.left-arrow').style.display = 'none';
 		};
 		
 		const enableSliderInteractions = () => {
 			this.doneSliding = true;
 			this.labels[0].parentElement.style.display = 'initial';
-			this.slider.querySelector('.rightArrow').style.display = 'initial';
-			this.slider.querySelector('.leftArrow').style.display = 'initial';
+			this.slider.querySelector('.right-arrow').style.display = 'initial';
+			this.slider.querySelector('.left-arrow').style.display = 'initial';
+			this.updateSlideIndicator();
 		}
 		
 		disableSliderInteractions();
 		setTimeout(enableSliderInteractions,650);
 		startInterval();
-		updateLabels();
 		updatePreviousSlide();
 	}
 	
-	getSwipeDirection() {
+	swipeSlider() {
 		const xDifference = this.swipeList[0].clientX - this.swipeList[this.swipeList.length - 1].clientX;
 		const yDifference = this.swipeList[0].clientY - this.swipeList[this.swipeList.length - 1].clientY;
 		if(xDifference > 0 && Math.abs(yDifference) < 100) {
@@ -169,52 +169,38 @@ class Slider {
 		this.swipeList = [];
 	}
 	
-	getUserInput(target,type) {
-		if(this.doneSliding) {
-			if(type === 'click') {
-				if(target.tagName === 'IMG') {
-						for(let i=0;i<target.classList.length;i++) {
-							if(target.classList[i] === 'rightArrow') {
-									this.next();
-							}	else if(target.classList[i] === 'leftArrow') {
-									this.prev();			
-							} 
-						}
-				} else if(target.tagName === 'INPUT') {
-						this.refreshDOMElements();					
-				}
-			} else if(type === 'touch' && this.doneSliding) {
-						this.getSwipeDirection();
-			} 
-		}
-	}
-	
 	initialize() {
-		const makeArrow = (css) => {
-			const arrow = document.createElement('IMG');
-			arrow.setAttribute('src','../img/rightArrow.svg');
-			arrow.setAttribute('class',css);
-			return arrow;
-		}
+		const leftArrow = document.querySelector('.left-arrow');
+		const rightArrow = document.querySelector('.right-arrow'); 
+		const sliderControls = document.querySelector('.slider_controls');
 		
-		this.intervalBar.setAttribute('class','slide-indicator');
-		this.slider.appendChild(this.intervalBar);
-		this.slider.appendChild(makeArrow('leftArrow'));
-		this.slider.appendChild(makeArrow('rightArrow'));
-		
-		this.slider.addEventListener('click',event => {
-				this.getUserInput(event.target,'click');
+		leftArrow.addEventListener('click', event => {
+			this.prev();
 		});
+		
+		rightArrow.addEventListener('click', event => {
+			this.next();
+		});
+		
+		sliderControls.addEventListener('click', event => {
+			this.refreshSliderElements();
+		});
+		
 		this.slider.addEventListener('touchmove',event => {
-				this.swipeList.push(event.touches[0]);
+			this.swipeList.push(event.touches[0]);
 		});
+		
 		this.slider.addEventListener('touchend',event => {
 			if(this.swipeList.length > 0) {
-				this.getUserInput(event.target,'touch');
+				this.swipeSlider();
 			}
 		});
+		
+		// Add the interval bar
+		this.intervalBar.setAttribute('class','slide-indicator');
+		this.slider.appendChild(this.intervalBar);
 		// Update DOM elements to match current checked status
-		this.refreshDOMElements();
+		this.refreshSliderElements();
 	}
 	
 }
