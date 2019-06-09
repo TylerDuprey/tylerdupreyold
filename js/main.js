@@ -192,7 +192,7 @@ class Slider {
 	initialize() {
 		const makeArrow = (css) => {
 			const arrow = document.createElement('IMG');
-			arrow.setAttribute('src','../img/rightArrow.svg');
+			arrow.setAttribute('src','https://tylerduprey.github.com/tylerduprey/img/rightArrow.svg');
 			arrow.setAttribute('class',css);
 			return arrow;
 		}
