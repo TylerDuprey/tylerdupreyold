@@ -191,16 +191,17 @@ class Slider {
 	
 	initialize() {
 		const makeArrow = (css) => {
-			const arrow = document.createElement('IMG');
-			arrow.setAttribute('src','https://tylerduprey.github.com/tylerduprey/img/rightArrow.svg');
-			arrow.setAttribute('class',css);
-			return arrow;
+			const rightArrow = document.createElement('IMG');
+			const leftArrow = document.createElement('IMG');
+			this.slider.appendChild(leftArrow);
+			this.slider.appendChild(rightArrow);
+			arrow.setAttribute('src','img/rightArrow.svg');
+			leftArrow.setAttribute('class','leftArrow');
+			right.setAttribute('class','rightArrow');
 		}
 		
 		this.intervalBar.setAttribute('class','slide-indicator');
 		this.slider.appendChild(this.intervalBar);
-		this.slider.appendChild(makeArrow('leftArrow'));
-		this.slider.appendChild(makeArrow('rightArrow'));
 		
 		this.slider.addEventListener('click',event => {
 				this.getUserInput(event.target,'click');
