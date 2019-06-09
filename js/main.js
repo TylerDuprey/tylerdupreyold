@@ -190,15 +190,6 @@ class Slider {
 	}
 	
 	initialize() {
-		const makeArrow = (css) => {
-			const rightArrow = document.createElement('IMG');
-			const leftArrow = document.createElement('IMG');
-			this.slider.appendChild(leftArrow);
-			this.slider.appendChild(rightArrow);
-			arrow.setAttribute('src','img/rightArrow.svg');
-			leftArrow.setAttribute('class','leftArrow');
-			right.setAttribute('class','rightArrow');
-		}
 		
 		this.intervalBar.setAttribute('class','slide-indicator');
 		this.slider.appendChild(this.intervalBar);
