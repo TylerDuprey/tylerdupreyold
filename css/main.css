@@ -621,7 +621,7 @@ li.active .nav-icon .icon-path {
 	right: 2.5%;
 }
 
-.left-arrow svg {
+.left-arrow {
 	left: 2.5%;
 	transform: rotate(180deg);
 }

@@ -82,15 +82,22 @@ class Slider {
 	
 	next() {
 		this.nextSlide.checked = true;
-		this.refreshDOMElements();
+		this.refreshSliderElements();
 	}
 	
 	prev() {
 		this.prevSlide.checked = true;
-		this.refreshDOMElements();
+		this.refreshSliderElements();
 	}
 	
-	refreshDOMElements() {
+	updateSlideIndicator() {
+		for(let i=0;i<this.labels.length;i++) {
+		 this.labels[i].style.backgroundColor = 'rgba(119,119,119,.85)';		
+		}
+		this.labels[this.index].style.backgroundColor = '#CCC';	
+	}
+	
+	refreshSliderElements() {
 		const startInterval = () => {
 			const interval = () => {
 				if(this.intervalProgress < 100) {
@@ -123,13 +130,6 @@ class Slider {
 			this.intervalId = setInterval(interval,10);
 		}
 
-		const updateLabels = () => {
-			for(let i=0;i<this.labels.length;i++) {
-			 this.labels[i].style.backgroundColor = 'rgba(119,119,119,.85)';		
-			}
-			this.labels[this.index].style.backgroundColor = '#CCC';
-		}
-
 		const updatePreviousSlide = () => {
 			for(let i=0;i<this.slides.length;i++) {
 				this.slides[i].nextElementSibling.classList = 'slide';
@@ -149,16 +149,16 @@ class Slider {
 			this.labels[0].parentElement.style.display = 'initial';
 			this.slider.querySelector('.right-arrow').style.display = 'initial';
 			this.slider.querySelector('.left-arrow').style.display = 'initial';
+			this.updateSlideIndicator();
 		}
 		
 		disableSliderInteractions();
 		setTimeout(enableSliderInteractions,650);
 		startInterval();
-		updateLabels();
 		updatePreviousSlide();
 	}
 	
-	getSwipeDirection() {
+	swipeSlider() {
 		const xDifference = this.swipeList[0].clientX - this.swipeList[this.swipeList.length - 1].clientX;
 		const yDifference = this.swipeList[0].clientY - this.swipeList[this.swipeList.length - 1].clientY;
 		if(xDifference > 0 && Math.abs(yDifference) < 100) {
@@ -167,24 +167,6 @@ class Slider {
 				this.prev();
 		} 
 		this.swipeList = [];
-	}
-	
-	getUserInput(target,type) {
-		console.log('ran');
-		if(this.doneSliding) {
-			if(type === 'arrow') {
-				for(let i=0;i<target.classList.length;i++) {
-					if(target.classList[i] === 'right-arrow') {
-							this.next();
-					}	else if(target.classList[i] === 'left-arrow') {
-							this.prev();			
-					} 
-				}
-			} else if(type === 'trigger') {					
-			} else if(type === 'touch' && this.doneSliding) {
-					this.getSwipeDirection();
-			} 
-		}
 	}
 	
 	initialize() {
@@ -201,16 +183,16 @@ class Slider {
 		});
 		
 		sliderControls.addEventListener('click', event => {
-			this.refreshDOMElements();		
+			this.refreshSliderElements();
 		});
 		
 		this.slider.addEventListener('touchmove',event => {
-				this.swipeList.push(event.touches[0]);
+			this.swipeList.push(event.touches[0]);
 		});
 		
 		this.slider.addEventListener('touchend',event => {
 			if(this.swipeList.length > 0) {
-				this.getUserInput(event.target,'touch');
+				this.swipeSlider();
 			}
 		});
 		
@@ -218,7 +200,7 @@ class Slider {
 		this.intervalBar.setAttribute('class','slide-indicator');
 		this.slider.appendChild(this.intervalBar);
 		// Update DOM elements to match current checked status
-		this.refreshDOMElements();
+		this.refreshSliderElements();
 	}
 	
 }
