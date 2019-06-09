@@ -1,285 +1,27 @@
 /* ===================================
    Video Functionality 
    ================================ */
-class DomVideos {
-	constructor(cssClass) {
-		this.videos = document.getElementsByClassName(cssClass);
+class Videos {
+	constructor() {
+		
 	}
 	
-	build() {
-		for(let i=0;i<this.videos.length;i++) {
-			const video = new Video(this.videos[i]);
-			video.initialize();
+	addIframe() {
+		for(let vid of document.querySelectorAll('.jsVideo')) {
+			const source = vid.dataset.source;	
+			const iframe = document.createElement('iframe');
+			
+			iframe.setAttributeNS(null, 'src', `https://www.youtube.com/embed/${source}`);
+			iframe.setAttributeNS(null, 'allow', `accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture`);
+			iframe.setAttributeNS(null, 'autoplay', `true`);
+			iframe.setAttributeNS(null, 'allowfullscreen', `true`);
+			
+			vid.appendChild(iframe);
 		}
 	}
 }
-// Initialize a new list of videos on the page
-const videoList = new DomVideos('jsVideo');
 
-class Video {
-	constructor(videoContainer) {
-		this.container = videoContainer;
-		this.video = this.container.getElementsByTagName('VIDEO')[0];
-		this.time = this.video.currentTime;
-		this.caption = this.container.getElementsByTagName('FIGCAPTION')[0];
-		this.progressBar = this.container.querySelector('.progressbarJS');
-		this.volumeBar = this.container.querySelector('.volumeJS');
-		this.playButton = this.container.querySelector('.playJS');
-		this.skipForward = this.container.querySelector('.forwardJS');
-		this.skipBack = this.container.querySelector('.backJS');
-		this.muteButton = this.container.querySelector('.muteJS');
-		this.fullscreenButton = this.container.querySelector('.fullJS');
-		this.startTimeContainer = this.container.querySelector('.startimeJS');
-		this.endTimeContainer = this.container.querySelector('.endtimeJS');
-		this.isPlaying = false;
-		this.transcriptButton = this.container.querySelector('.transcriptJS');
-		this.transcript = [];
-		this.transcriptData = captionData;
-	}
-	
-	togglePlay() {
-		if(this.isPlaying) {
-			this.video.pause();
-			this.isPlaying = false;
-			this.playButton.innerHTML = '<img src="../../js/video-plugin/video-img/play.png" />';
-		} else {
-			this.video.play();
-			this.isPlaying = true;
-			this.playButton.innerHTML = '<img src="../../js/video-plugin/video-img/pause.png" />';
-		}
-		this.toggleButtonBackground(this.playButton);
-	}
-	
-	toggleMute() {
-		if(this.video.volume > 0) {
-			this.changeVol(0);// Will take vol to zero no matter what it's at now
-		} else {
-			this.changeVol(.65);// Will default to 65% for user ear safety
-		}
-		this.toggleButtonBackground(this.muteButton);
-	}
-	
-	updateTime(time) {
-  	this.video.currentTime = time;
-	}
-	
-	jump(forward) {
-		let time = this.video.currentTime;
-		if(forward) {
-			time = time + 30;
-			this.video.currentTime = time;
-		} else {
-			time = time - 10;
-			this.video.currentTime = time;
-		}
-	}
-	
-	changeVol(vol) {
-		if(vol > 1) {
-				this.video.volume = 1;
-				this.volumeBar.value = 1;
-				this.muteButton.innerHTML = '<img src="../../js/video-plugin/video-img/volume.png" />'
-		} else if(vol <= 0) {
-				this.video.volume = 0;
-				this.volumeBar.value = 0;
-				this.muteButton.innerHTML = '<img src="../../js/video-plugin/video-img/mute.png" />';
-		} else {
-				this.video.volume = vol;
-				this.volumeBar.value = vol;
-				this.muteButton.innerHTML = '<img src="../../js/video-plugin/video-img/volume.png" />'
-		}
-	}
-	
-	toggleTranscript() {
-		const display = this.caption.style.display;
-		if(!display || display === 'none') {
-			this.caption.style.display = 'block';	 
-		} else {
-			this.caption.style.display = 'none';
-		}
-		this.toggleButtonBackground(this.transcriptButton);
-	}
-	
-	fullScreen() {
-		if (this.video.requestFullscreen) {
-			this.video.requestFullscreen();
-		} else if (this.video.mozRequestFullScreen) {
-			this.video.mozRequestFullScreen(); // Firefox
-		} else if (this.video.webkitRequestFullscreen) {
-			this.video.webkitRequestFullscreen(); // Chrome and Safari
-		}
-	}
-	
-	highlightTranscript(time) {
-		const transcriptArray = this.caption.querySelectorAll('.caption');
-		for(let i=0;i<this.transcript.length;i++) {
-			transcriptArray[i].classList.remove('highlight');
-			if(this.transcript[i].time < this.time && this.transcript[i+1] == null) {
-					transcriptArray[i].classList.add('highlight');
-			} else if (this.transcript[i].time < this.time && this.transcript[i+1].time > time) {
-					transcriptArray[i].classList.add('highlight');
-			} else if (this.transcript[i].time == this.time) {
-					transcriptArray[i].classList.add('highlight');
-			}
-		}
-	}
-	
-	updateProgressBar(time) {
-		time = time / 100 + .0025; // Add an extra bit so it doesn't fall behind as much
-		this.progressBar.style.backgroundImage = "-webkit-gradient(linear, left top, right top, "
-																	 + "color-stop(" + time + ", #fff), "
-																	 + "color-stop(" + time + ", rgba(255,255,255,.1)"
-																	 + ")";
-	}
-	
-	getTimeFormat(time) {
-		let hrs = 0;
-		let min = 0;
-		let sec = 0;
-		let html = '';
-		time = Math.floor(time);
-		// Get Hours
-		hrs = Math.floor((time / 60) / 60);
-		// Get Minutes
-		min = time - (hrs * 3600);
-		min = min / 60;
-		min = Math.floor(min);
-		// Get Seconds
-		sec = time - (hrs*3600 + min*60);
-		hrs = hrs.toString();
-		if(min < 10) {
-			min.toString();
-			min = '0' + min;
-		}
-		if(sec < 10) {
-			sec.toString();
-			sec = '0' + sec;
-		}
-		if(hrs === '0') {
-			return min + ":" + sec;
-		} else {
-			return hrs + ":" + min + ":" + sec;
-		}
-	}
-	
-	clickableCaptions() {
-		const captions = document.querySelectorAll('.caption');
-		// Jump to point in video when caption is clicked
-		for(let i=0;i<captions.length;i++) {
-			let clickableCaption = captions[i];
-			clickableCaption.addEventListener('click',event => {
-				for(let i=0;i<this.transcript.length;i++) {
-					if(this.transcript[i].text == event.target.innerText) {
-							this.updateTime(this.transcript[i].time);
-					}
-				}
-			});
-		}
-	}
-	
-	toggleButtonBackground(button) {
-		const backgroundColor = button.style.backgroundColor;
-		if(backgroundColor === 'rgb(22, 149, 163)' || backgroundColor === '#1695A3' || backgroundColor === '') {
-			button.style.backgroundColor = '#225378';	 
-		} else {
-			button.style.backgroundColor = '#1695A3';	
-		}
-	}
-	
-	initialize() {
-		// Toggle video play state when play/pause buttons are pressed
-		this.playButton.addEventListener('click',() => {
-			this.togglePlay();
-		});
-		// Toggle video with video click
-		this.video.addEventListener('click',() => {
-			this.togglePlay();
-		});
-		// Skip forward button 
-		this.skipForward.addEventListener('click', () => {
-			this.jump(true);
-		});
-		// Skip backward button 
-		this.skipBack.addEventListener('click', () => {
-			this.jump(false);
-		});
-		// Toggle video muted state when mute/volume buttons are pressed
-		this.muteButton.addEventListener('click',() => {
-			this.toggleMute();
-		});
-		// Toggle the Transcript 
-		this.transcriptButton.addEventListener('click',() => {
-			this.toggleTranscript();
-		});
-		// Request full screen from browser when button clicked
-		this.fullscreenButton.addEventListener('click',() => {
-			this.fullScreen();
-		});
-		// Load the transcript array using data supplied for each video
-		for(let i=0;i<this.transcriptData.length;i++) {
-			this.transcript.push(this.transcriptData[i]);
-		}
-		// Change the volume when volume indicator is changed
-		this.volumeBar.addEventListener('change', () => {
-			// Update the video volume
-			this.changeVol(this.volumeBar.value);
-		});
-		// track video seek bar position when manually changed by user with mouse
-		this.progressBar.addEventListener("mousedown", () => {
-			this.video.pause(); // Need to Pause the video while user scrubs
-		});
-		this.progressBar.addEventListener("mouseup", () => {
-			this.updateTime(this.video.duration * (this.progressBar.value / 100));
-			if(this.isPlaying) {
-				this.video.play(); // Need to continue playing if it was playing before
-			}
-		});
-		// track video seek bar position when manually changed by user with touch
-		this.progressBar.addEventListener("touchstart", () => {
-			this.video.pause(); // Need to Pause the video while user scrubs
-		});
-		this.progressBar.addEventListener("touchend", () => {
-			this.updateTime(this.video.duration * (this.progressBar.value / 100));
-			if(this.isPlaying) {
-				this.video.play(); // Need to continue playing if it was playing before
-			}
-		});
-		// track video progress and update range and captions
-		this.video.addEventListener("timeupdate",() => {
-			this.time = this.video.currentTime;
-			// update caption highlight
-			this.highlightTranscript(this.time);
-			// update range input;
-			this.progressBar.value = (100 / this.video.duration) * this.video.currentTime;
-			this.updateProgressBar(this.progressBar.value);
-			this.startTimeContainer.innerText = this.getTimeFormat(this.video.currentTime);
-		});
-		// Calls to video's data need to be called after video metadata loads
-		this.video.onloadedmetadata = () => {
-			this.endTimeContainer.innerText = this.getTimeFormat(this.video.duration);
-		};
-		// BUGFIX: onloadmetadata not running for some reason
-			this.endTimeContainer.innerText = this.getTimeFormat(this.video.duration);
-		// Change video element state with keyboard press
-		document.body.onkeyup = event => {
-				let time = this.video.currentTime;
-				// Spacebar press
-				if(event.keyCode == 32){
-					event.preventDefault();
-					this.togglePlay();
-				}
-				// left press
-				if(event.keyCode == 37){
-					this.rewind();
-				}
-				// right press
-				if(event.keyCode == 39){
-					this.skip();
-				}
-		}
-		this.clickableCaptions();
-	}
-}
+const videos = new Videos();
 
 /* ===================================
    Slider Functionality 
@@ -572,7 +314,7 @@ window.onload = function() {
 	// Update the Copyright year in the footer
 	footerYear.print();
 	// Setup all videos on the page
-	videoList.build();
+	videos.addIframe();
 };
 	
 	
