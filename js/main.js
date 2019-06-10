@@ -1,5 +1,7 @@
 /* Module Pattern */
 !function(){
+	'use strict';
+	
 	/* ===================================
 		 Video Functionality 
 		 ================================ */
