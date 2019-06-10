@@ -305,5 +305,6 @@
 		// Setup all videos on the page
 		videos.addIframe();
 	};
+	
 }();
 	
