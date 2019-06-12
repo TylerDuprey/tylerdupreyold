@@ -288,7 +288,7 @@
 		}
 	}
 	// Instantiate a new time stamp for the site footer
-	const footerYear = new Timestamp(document.getElementById('jsDate'),new Date().getFullYear());
+	const footerYear = new Timestamp(document.querySelector('.jsDate'),new Date().getFullYear());
 
 	/* ===================================
 		 Functions to call on page load
