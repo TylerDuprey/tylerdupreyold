@@ -252,7 +252,7 @@
 		}
 	}
 	// Initialize a Header for the main header on the site
-	const mainHeader = new Header(document.getElementById('main-header'),1);
+	const mainHeader = new Header(document.querySelector('.main-header'),1);
 
 	/* ===================================
 		 Menu Functionality 
