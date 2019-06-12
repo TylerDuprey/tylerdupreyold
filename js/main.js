@@ -135,7 +135,7 @@
 
 			const updatePreviousSlide = () => {
 				for(let i=0;i<this.slides.length;i++) {
-					this.slides[i].nextElementSibling.classList = 'slide';
+					this.slides[i].nextElementSibling.classList.remove('prev-slide');
 				}
 				this.prevSlide.nextElementSibling.classList += ' prev-slide';
 			}	

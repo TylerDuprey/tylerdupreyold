@@ -584,15 +584,15 @@ li.active .nav-icon .icon-path {
 	background-color: rgba(0,0,0,.45);
 }
 
-#slide_one .slide-image {
+.slide-one .slide-image {
 	background-image: url('../img/layout.JPG');
 }
 
-#slide_two .slide-image {
+.slide-two .slide-image {
 	background-image: url('../img/logo-design.svg');
 }
 
-#slide_three .slide-image {
+.slide-three .slide-image {
 	background-image: url('../img/interactive-button.svg');
 }
 
