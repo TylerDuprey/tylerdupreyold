@@ -252,7 +252,7 @@
 		}
 	}
 	// Initialize a Header for the main header on the site
-	const mainHeader = new Header(document.getElementById('main_header'),1);
+	const mainHeader = new Header(document.getElementById('main-header'),1);
 
 	/* ===================================
 		 Menu Functionality 
@@ -273,7 +273,7 @@
 		}
 	}
 	// Initialize a Menu for the main menu on the site
-	const mainMenu = new Menu(document.getElementById('menu_trigger'),document.querySelector('#main_header > .container'));
+	const mainMenu = new Menu(document.getElementById('menu_trigger'),document.querySelector('.main-header > .container'));
 
 	/* ===================================
 		 Update Footer Year 

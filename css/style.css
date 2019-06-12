@@ -144,7 +144,7 @@ label,
 	width: 95%;
 }
 
-#main_header {
+.main-header {
     padding: 1rem 0;
     background-color: #FFF;
     position: relative;
