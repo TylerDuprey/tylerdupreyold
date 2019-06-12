@@ -264,8 +264,7 @@
 		}
 		addObfuscator() {
 			const obf = document.createElement('DIV');
-			obf.setAttribute('id','main_obfuscator');
-			obf.setAttribute('class','obfuscator');
+			obf.setAttribute('class','main-obfuscator obfuscator');
 			obf.addEventListener('click',() => {
 				this.trigger.checked = false;
 			});
