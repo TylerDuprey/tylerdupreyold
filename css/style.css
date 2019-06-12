@@ -821,41 +821,41 @@ p + form select {
    ==================================================================================================================================================== */
 
 /* When menu is open */
-#menu_trigger:checked + label[for="menu_trigger"] div {
+.menu-trigger:checked + label[for="menu_trigger"] div {
     margin-bottom: 0;
     transform: rotate(45deg);
     background-color: #FFF;
 }
 
-#menu_trigger:checked + label[for="menu_trigger"] div:first-child {
+.menu-trigger:checked + label[for="menu_trigger"] div:first-child {
     margin-bottom: 0;
     transform: rotate(45deg);
 }
 
-#menu_trigger:checked + label[for="menu_trigger"] div:nth-child(2) {
+.menu-trigger:checked + label[for="menu_trigger"] div:nth-child(2) {
     opacity: 0;
     transform: rotate(-45deg);
     transition: opacity .15s ease-in-out;
 }
 
-#menu_trigger:checked + label[for="menu_trigger"] div:last-child {
+.menu-trigger:checked + label[for="menu_trigger"] div:last-child {
     margin-top: -6px;
     transform: rotate(-45deg);
 }
 
-#menu_trigger:checked + label[for="menu_trigger"] + .drawer {
+.menu-trigger:checked + label[for="menu_trigger"] + .drawer {
     width: 75%;
 }
 
-#menu_trigger:checked + label[for="menu_trigger"] + .drawer > header,
-#menu_trigger:checked + label[for="menu_trigger"] + .drawer li,
-#menu_trigger:checked + label[for="menu_trigger"] + .drawer h3,
-#menu_trigger:checked + label[for="menu_trigger"] + .drawer .btn {
+.menu-trigger:checked + label[for="menu_trigger"] + .drawer > header,
+.menu-trigger:checked + label[for="menu_trigger"] + .drawer li,
+.menu-trigger:checked + label[for="menu_trigger"] + .drawer h3,
+.menu-trigger:checked + label[for="menu_trigger"] + .drawer .btn {
     opacity: 1;
     transition: opacity .35s .15s ease-in-out;
 }
 
-#menu_trigger:checked + label[for="menu_trigger"] + .drawer + .main-obfuscator {
+.menu-trigger:checked + label[for="menu_trigger"] + .drawer + .main-obfuscator {
     opacity: .8;
 		height: 100vh;
 }
