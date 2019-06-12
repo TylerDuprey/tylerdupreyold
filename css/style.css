@@ -200,7 +200,7 @@ label,
     margin-top: 3px;
 }
 
-#main_footer {
+.main-footer {
     margin-top: 1.5rem;
 }
 
@@ -410,7 +410,7 @@ main.two-column-even > aside {
 	margin-top: 2rem;
 }
 
-#main_footer {
+.main-footer {
     padding: 2rem 0;
     background-color: #225378;
 	  background-image: linear-gradient(to right, #225378 35%, #1695A3);
