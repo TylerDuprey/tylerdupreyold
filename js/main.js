@@ -62,7 +62,7 @@
 		get index() {
 			for(let i=0;i<this.slides.length;i++) {
 				if(this.slides[i].checked) {
-				 return i; 
+					return i; 
 				}
 			}
 		}
@@ -86,11 +86,18 @@
 		next() {
 			this.nextSlide.checked = true;
 			this.refreshSliderElements();
+			this.updatePreviousSlide();
 		}
 
 		prev() {
 			this.prevSlide.checked = true;
 			this.refreshSliderElements();
+			this.updatePreviousSlide();
+		}
+		
+		update() {
+			this.refreshSliderElements();
+			this.updatePreviousSlide();
 		}
 
 		updateSlideIndicator() {
@@ -99,6 +106,14 @@
 			}
 			this.labels[this.index].style.backgroundColor = '#CCC';	
 		}
+		
+		updatePreviousSlide() {
+			for(let i=0;i<this.slides.length;i++) {
+				this.slides[i].nextElementSibling.classList.remove('prev-slide');
+			}
+			console.log(this.index);
+			this.prevSlide.nextElementSibling.classList += ' prev-slide';
+		}	
 
 		refreshSliderElements() {
 			const startInterval = () => {
@@ -133,13 +148,6 @@
 				this.intervalId = setInterval(interval,10);
 			}
 
-			const updatePreviousSlide = () => {
-				for(let i=0;i<this.slides.length;i++) {
-					this.slides[i].nextElementSibling.classList.remove('prev-slide');
-				}
-				this.prevSlide.nextElementSibling.classList += ' prev-slide';
-			}	
-
 			const disableSliderInteractions = () => {
 				this.doneSliding = false;	
 				this.labels[0].parentElement.style.display = 'none';
@@ -158,7 +166,6 @@
 			disableSliderInteractions();
 			setTimeout(enableSliderInteractions,650);
 			startInterval();
-			updatePreviousSlide();
 		}
 
 		swipeSlider() {
@@ -186,7 +193,11 @@
 			});
 
 			sliderControls.addEventListener('click', event => {
-				this.refreshSliderElements();
+				const updateSlides = () => {
+					this.update();	
+				};
+				// Need to delay this call so the DOM can update the index
+				setTimeout(function() {updateSlides()},50);
 			});
 
 			this.slider.addEventListener('touchmove',event => {

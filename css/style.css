@@ -855,8 +855,7 @@ p + form select {
 		height: 100vh;
 }
 
-input[name="slides"]:checked + .slide,
-input[name="slides"]:checked + .prev-slide {
+input[name="slides"]:checked + .slide {
     left: 0;
     z-index: 9;
     transition: left .6s ease-in-out;
