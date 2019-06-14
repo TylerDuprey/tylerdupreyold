@@ -111,7 +111,6 @@
 			for(let i=0;i<this.slides.length;i++) {
 				this.slides[i].nextElementSibling.classList.remove('prev-slide');
 			}
-			console.log(this.index);
 			this.prevSlide.nextElementSibling.classList += ' prev-slide';
 		}	
 
