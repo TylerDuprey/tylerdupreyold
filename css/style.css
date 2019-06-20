@@ -292,6 +292,15 @@ label,
     border-radius: 10px;
 }
 
+/* Main Section */
+.main-section {
+	flex: 1;
+}
+
+.main-section + aside {
+	margin-top: 2rem;
+}
+
 /* Main Article */
 
 .main-article h1 {
