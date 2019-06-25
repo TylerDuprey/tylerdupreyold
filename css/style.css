@@ -785,7 +785,6 @@ p + form select {
 	position: relative;
 	margin: 0;
 	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
 	height: 0;
 	background-color: transparent;
 	border-radius: 10px;
