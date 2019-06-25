@@ -783,7 +783,7 @@ p + form select {
 	padding-bottom: 56.25%; /* 16:9 */
 	padding-top: 25px;
 	height: 0;
-	background-color: #1695A3;
+	background-color: transparent;
 	border-radius: 10px;
 	overflow: hidden;
 }
