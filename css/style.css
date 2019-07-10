@@ -15,7 +15,7 @@
 html {
     font-size: 1em;
     line-height: 1.4;
-}
+}.
 
 /*
  * Remove text-shadow in selection highlight:
@@ -1207,7 +1207,7 @@ a:active {
 		}
     
     .hero {
-        height: 350px;
+        padding-top: 60%;
     }
 	
 		.slide .container {
