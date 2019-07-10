@@ -278,7 +278,9 @@ label,
 		transition: color .15s ease-in-out;
 }
 
-.drawer li.active a {
+.drawer li.active a:link, 
+.drawer li.active a:visited,
+.drawer li.active a:active, {
 		color: #AAA;
 }
 
@@ -465,13 +467,12 @@ main.two-column-even > aside {
 	height: 20px;
 }
 
-.nav-icon .icon-path {
-	fill: #777;
-	transition: fill .35s ease-in-out;
+.icon-path {
+	fill: #777777;
 }
 
-li.active .nav-icon .icon-path {
-	fill: #AAA;
+.drawer #shadow-root .icon-path {
+	fill: #FFFFFF;
 }
 
 .breadcrumbs {
@@ -520,10 +521,6 @@ li.active .nav-icon .icon-path {
 	width: 25px;
 	height: 25px;
 	z-index: 10;
-}
-
-.right-arrow,
-.left-arrow {
 	opacity: 0;
 	transition: opacity .35s ease-in-out;
 }
@@ -535,6 +532,13 @@ li.active .nav-icon .icon-path {
 .left-arrow {
 	left: 2.5%;
 	transform: rotate(180deg);
+}
+
+.left-arrow,
+.right-arrow,
+.arrow-icon {
+	width: 25px;
+	height: 25px;
 }
 
 .slide {
@@ -1025,6 +1029,14 @@ a:active {
         color: #AAA;
         cursor: default;
     }
+	
+		.drawer li.active .icon-path {
+				fill: #AAAAAA;
+		}
+	
+		.drawer li:hover .icon-path {
+				fill: #FFFFFF;
+		}
     
     .drawer header {
         display: none;
@@ -1056,29 +1068,8 @@ a:active {
 		}
     
     .drawer li:hover {
-        background-color: #225378;
-				background-image: linear-gradient(to right, #225378, #1695A3);
         cursor: pointer;
     }
-	
-		.drawer li.active:hover {
-				background-color: #FFF;
-				background-image: none;
-				cursor: default;
-		}
-    
-    .drawer li:hover a,
-    .drawer li:hover a.btn {
-        color: #FFF;
-    }
-	
-		.drawer li:hover a .icon-path {
-				fill: #FFFFFF;
-		}
-	
-		.drawer li.active:hover a .icon-path {
-				fill: #AAA;
-		}
     
     .drawer li a.btn {
         background: none;
@@ -1201,6 +1192,24 @@ a:active {
 		.main-container,
 		.footer-container {
 			width: 90%;
+		}
+	
+		.drawer li:hover {
+				background-color: #1695A3;
+				background-image: linear-gradient(to right, #225378, #1695A3);
+		}
+	
+		.drawer li:hover a {
+				color: #FFF;
+		}
+	
+		.drawer li.active:hover {
+			background: #FFF;
+			cursor: default;
+		}
+	
+		.drawer li.active .icon-path {
+			fill: #AAAAAA;
 		}
 	
     .main-container {
