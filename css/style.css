@@ -15,7 +15,7 @@
 html {
     font-size: 1em;
     line-height: 1.4;
-}.
+}
 
 /*
  * Remove text-shadow in selection highlight:
@@ -946,7 +946,7 @@ a:active {
 @media screen and (min-width: 411px) {
     
 		.hero {
-			padding-top: 56.25%;
+			padding-top: 60%;
 		}
 	
     .article-list ul {
@@ -1207,7 +1207,7 @@ a:active {
 		}
     
     .hero {
-        padding-top: 60%;
+        padding-top: 70%;
     }
 	
 		.slide .container {
