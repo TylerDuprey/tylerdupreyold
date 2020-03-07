@@ -957,8 +957,11 @@ a:active {
     font-weight: 900;
 }
 
-.logo .fa-icon:before {
+.logo .fa-icon {
 	position: inherit;
+}
+
+.logo .fa-icon:before {
 	content: '\f135';
 	font-size: 2rem;
 }
