@@ -957,6 +957,10 @@ a:active {
     font-weight: 900;
 }
 
+.fa-icon.logo:before {
+	content: '\f135';
+}
+
 .fa-icon.about-link:before {
     content: "\f406";
 }
