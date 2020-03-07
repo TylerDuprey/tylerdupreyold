@@ -960,6 +960,7 @@ a:active {
 .logo .fa-icon:before {
 	position: inherit;
 	content: '\f135';
+	font-size: 2rem;
 }
 
 .fa-icon.about-link:before {
