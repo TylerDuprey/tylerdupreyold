@@ -95,6 +95,10 @@ textarea {
 /* ====================================================================================================================================================
    Base Styles
    ==================================================================================================================================================== */
+@font-face {
+  font-family: "junegull";
+  src: url("../fonts/junegull.woff");
+}
 
 * {
     box-sizing: border-box;
@@ -109,7 +113,7 @@ body {
 body {
     min-height: 100vh;
 	min-width: 320px;
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     color: #777;
     background-color: #FAFAFA;
 	display: flex;
@@ -150,6 +154,9 @@ label,
     background-color: #FFF;
     position: relative;
     z-index: 997;
+	position: -webkit-sticky;
+	position: sticky;
+	top: -1px;
 }
 
 .header-container {
@@ -268,8 +275,12 @@ label,
     padding: 1rem 0 1rem 30px;
 }
 
-.drawer li a:link {
+.main-header a:link {
     text-decoration: none;
+}
+
+.search .search-link {
+	color: #777;
 }
 
 .drawer li a:link,
@@ -281,7 +292,7 @@ label,
 
 .drawer li.active a:link, 
 .drawer li.active a:visited,
-.drawer li.active a:active, {
+.drawer li.active a:active {
 		color: #AAA;
 }
 
@@ -516,15 +527,18 @@ main.two-column-even > aside {
 	  background-image: linear-gradient(to right, #1695A3, #225378);
 }
 
-.right-arrow,
-.left-arrow {
+.arrow {
 	position: absolute;
 	top: 45%;
 	width: 25px;
 	height: 25px;
-	z-index: 10;
 	opacity: 0;
 	transition: opacity .35s ease-in-out;
+	z-index: 10;
+}
+
+.arrow:before {
+	z-index: 100;
 }
 
 .right-arrow {
@@ -534,13 +548,6 @@ main.two-column-even > aside {
 .left-arrow {
 	left: 2.5%;
 	transform: rotate(180deg);
-}
-
-.left-arrow,
-.right-arrow,
-.arrow-icon {
-	width: 25px;
-	height: 25px;
 }
 
 .slide {
@@ -910,13 +917,14 @@ input[name="slides"]:checked + .slide p {
 	flex: 1;
 	text-align: center;
 	color: #225378;
-  background: -webkit-linear-gradient(left, #225378, #1695A3 50%);
+  background: -webkit-linear-gradient(left, #225378, #1695A3 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .logo a {
 	text-decoration: none;
+	font-size: 1.75rem;
 }
 
 h1 {
@@ -926,7 +934,7 @@ h1 {
 h1,
 h2,
 .logo {
-    font-family: 'Fredoka One', Arial, sans-serif;
+	font-family: 'junegull','Verdana',sans-serif;
 }
 
 a {
@@ -988,6 +996,12 @@ a:active {
 
 .fa-icon.search-link:before {
     content: "\f002";
+}
+
+.fa-icon.arrow:before {
+	content: '\f105';
+	color: #FFF;
+	font-size: 2rem;
 }
 
 /* ====================================================================================================================================================

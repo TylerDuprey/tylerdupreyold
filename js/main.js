@@ -219,52 +219,6 @@
 	}
 
 	/* ===================================
-		 Scrolling Header Functionality
-		 ================================ */
-	class Header {
-		constructor(element,scrollLimit) {
-			this.ticking = false;
-			this.element = element;
-			this.limit = scrollLimit;
-		}
-
-		toggleHeader(fixed) {
-			if(fixed) {
-					this.element.style.position = 'relative';
-			} else {
-					this.element.style.position = 'fixed';
-					this.element.style.width = '100%'; 
-			}
-		}
-
-		scrolling() {
-			let last_known_scroll_position = window.scrollY;
-			if (!this.ticking) {
-				window.requestAnimationFrame(() => {
-					if(last_known_scroll_position > this.limit) {
-						const fixed = this.element.style.position === 'fixed';
-						if(!fixed) {
-							this.toggleHeader(false);
-						} 
-					} else {
-							this.toggleHeader(true);
-					}
-					this.ticking = false;
-				});
-				this.ticking = true;
-			}
-		}
-
-		fixOnScroll() {
-			window.addEventListener('scroll',() => {
-				this.scrolling();		
-			});	
-		}
-	}
-	// Initialize a Header for the main header on the site
-	const mainHeader = new Header(document.querySelector('.main-header'),1);
-
-	/* ===================================
 		 Menu Functionality 
 		 ================================ */
 	class Menu {
@@ -305,8 +259,6 @@
 	window.onload = function() {
 		// Setup all sliders
 		pageSliders.build();
-		// Setup scrolling affects for main header
-		mainHeader.fixOnScroll();
 		// Append a new obfuscator on page load
 		mainMenu.addObfuscator();
 		// Update the Copyright year in the footer
