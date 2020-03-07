@@ -939,6 +939,28 @@ a:active {
     color: #225378;
 }
 
+.fa-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.fa-icon:before {
+    margin-right: .5rem;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.35rem;
+}
+
+.fa-icon .about-link:before {
+    content: "\f406";
+}
+
 /* ====================================================================================================================================================
    Narrow Phones
    ==================================================================================================================================================== */
