@@ -957,7 +957,7 @@ a:active {
     font-weight: 900;
 }
 
-.fa-icon.logo:before {
+.logo .fa-icon:before {
 	content: '\f135';
 }
 
