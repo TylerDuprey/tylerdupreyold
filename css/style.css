@@ -910,21 +910,34 @@ input[name="slides"]:checked + .slide p {
 
 .logo {
 	margin: 0;
-  padding: 0;
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  order: 2;
+	padding: 0;
+	order: 2;
 	flex: 1;
-	text-align: center;
-	color: #225378;
-  background: -webkit-linear-gradient(left, #225378, #1695A3 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .logo a {
 	text-decoration: none;
 	font-size: 1.75rem;
+}
+
+.logo-text {
+	text-align: center;
+	color: #225378;
+	background: -webkit-linear-gradient(left, #225378, #1695A3 70%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+}
+
+.tagline {
+	font-size: .875rem;
+	color: 225378;
+}
+
+.logo-text,
+.tagline {
+	text-align: center;
 }
 
 h1 {
@@ -965,13 +978,14 @@ a:active {
     font-weight: 900;
 }
 
-.logo .fa-icon {
+.fa-icon.logo {
 	position: inherit;
+	display: flex;
 }
 
-.logo .fa-icon:before {
+.fa-icon.logo:before {
 	content: '\f135';
-	font-size: 2rem;
+	font-size: 2.25rem;
 }
 
 .fa-icon.about-link:before {
@@ -1237,7 +1251,9 @@ a:active {
    ==================================================================================================================================================== */
 
 @media screen and (min-width: 1024px) {
-    
+    .logo {
+		text-align: left;
+	}
 		.header-container,
 		.breadcrumbs,
 		.main-container,
@@ -1275,7 +1291,8 @@ a:active {
 		}
 	
 		.header-container {
-				flex-direction: row;
+			flex-direction: row;
+			justify-content: space-between;
 		}
     
     .hero {
