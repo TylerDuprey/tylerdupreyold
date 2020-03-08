@@ -983,8 +983,11 @@ a:active {
     align-items: center;
 }
 
-.fa-icon:before {
-    margin-right: .5rem;
+.fa-icon:before,
+.fa-icon:after,
+button[type="submit"].fa-icon:after,
+.fa-icon.twitter-share-button:after,
+.fa-icon.email:after {
     display: inline-block;
     font-style: normal;
     font-variant: normal;
@@ -992,6 +995,33 @@ a:active {
     -webkit-font-smoothing: antialiased;
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
+}
+
+.fa-icon:before {
+    margin-right: .5rem;
+}
+
+.fa-icon.btn:after,
+button[type="submit"].fa-icon:after,
+.fa-icon.email:after {
+    margin-left: .5rem;
+}
+
+.fa-icon.btn:after {
+	content: '\f061';
+}
+
+.fa-icon.twitter-share-button:after {
+    font-family: "Font Awesome 5 Brands";
+	content: '\f099';
+}
+
+.fa-icon.email:after {
+	content: '\f0e0';
+}
+
+button[type="submit"].fa-icon:after {
+	content: '\f0e0';	
 }
 
 .fa-icon.logo {
