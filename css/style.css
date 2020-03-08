@@ -913,6 +913,7 @@ input[name="slides"]:checked + .slide p {
 	padding: 0;
 	order: 2;
 	flex: 1;
+	line-height: 1.1;
 }
 
 .logo a {
@@ -927,12 +928,12 @@ input[name="slides"]:checked + .slide p {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-transform: uppercase;
-	font-size: 1.5rem;
+	font-size: 1.81rem;
 }
 
 .tagline {
-	font-size: .875rem;
-	color: 225378;
+	font-size: 1rem;
+	font-family: 'Arial', serif;
 }
 
 .logo-text,
@@ -985,7 +986,7 @@ a:active {
 
 .fa-icon.logo:before {
 	content: '\f135';
-	font-size: 2.25rem;
+	font-size: 2.5rem;
 }
 
 .fa-icon.about-link:before {
