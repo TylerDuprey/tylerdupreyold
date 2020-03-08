@@ -356,6 +356,10 @@ label,
 	text-align: center;
 }
 
+.article-card header small {
+	font-size: 1rem;
+}
+
 .article-card:nth-of-type(2n) header {
     background-color: #1695A3;
 }
