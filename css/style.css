@@ -162,6 +162,7 @@ label,
 .header-container {
     display: flex;
     align-items: center;
+	justify-content: space-between;
 }
 
 .main-container {
@@ -937,11 +938,11 @@ input[name="slides"]:checked + .slide p {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-transform: uppercase;
-	font-size: 1.81rem;
+	font-size: 1.5rem;
 }
 
 .tagline {
-	font-size: 1rem;
+	font-size: .84rem;
 	font-family: 'Arial', serif;
 	color: #EB7F00;
 }
@@ -1038,17 +1039,20 @@ a:active {
    ==================================================================================================================================================== */
 
 @media screen and (min-width: 411px) {
-    
-		.hero {
-			padding-top: 60%;
-		}
-	
+	.logo-text {
+		font-size: 1.81rem;
+	}
+	.tagline {
+		font-size: 1rem;
+	}
+	.hero {
+		padding-top: 60%;
+	}
     .article-list ul {
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-gap: 1.25rem 1.5rem;
     }
-    
     .article-list > ul li {
         margin: 0;
     }
