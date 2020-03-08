@@ -114,7 +114,7 @@ body {
     min-height: 100vh;
 	min-width: 320px;
     font-family: Arial, sans-serif;
-    color: #777;
+    color: #555;
     background-color: #FAFAFA;
 	display: flex;
 	flex-direction: column;
@@ -280,14 +280,14 @@ label,
 }
 
 .search .search-link {
-	color: #777;
+	color: #555;
 }
 
 .drawer li a:link,
 .drawer li a:visited,
 .drawer li a:active {
-    color: #777;
-		transition: color .15s ease-in-out;
+    color: #555;
+	transition: color .34s ease-in-out,background-color .34s ease-in-out;
 }
 
 .drawer li.active a:link, 
@@ -343,15 +343,24 @@ label,
 
 .article-card {
     margin: 1rem 0;
-		background-color: #FFF;
+	background-color: #FFF;
 }
 
-.article-card .obfuscator {
+.article-card header {
     background-color: #225378;
+	color: #FFF;
+	padding: 20%;
+	border-radius: 5px;
+	font-size: 3rem;
+	text-align: center;
 }
 
-.article-card:nth-of-type(even) .obfuscator {
+.article-card:nth-of-type(2n) header {
     background-color: #1695A3;
+}
+
+.article-card:nth-of-type(3n) header {
+    background-color: #EB7F00;
 }
 
 .article-card article {
@@ -490,13 +499,13 @@ main.two-column-even > aside {
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 		font-size: 1.25rem;
-		color: #777;
+		color: #555;
 		font-weight: 700;
 }
 
 .breadcrumbs > a,
 .breadcrumbs > a:visited {
-		color: #777;
+		color: #555;
 }
 
 .breadcrumbs > svg {
@@ -703,14 +712,14 @@ button:active,
 
 button.disabled,
 .btn.disabled {
-	background-color: #777;
+	background-color: #555;
 	box-shadow: none;
 	cursor: not-allowed;
 }
 
 button.disabled:active,
 .btn.disabled:active {
-	background-color: #777;
+	background-color: #555;
 	box-shadow: none;
 }
 
@@ -776,7 +785,7 @@ input[type="email"]:valid {
 }
 
 input[type="email"]:invalid {
-	border-color: #777;
+	border-color: #555;
 }
 
 p + form input,
@@ -934,6 +943,7 @@ input[name="slides"]:checked + .slide p {
 .tagline {
 	font-size: 1rem;
 	font-family: 'Arial', serif;
+	color: #EB7F00;
 }
 
 .logo-text,
@@ -1146,7 +1156,7 @@ a:active {
         box-shadow: none;
         margin-top: 0;
         padding: 0;
-        color: #777;
+        color: #555;
     }
 	
 		.drawer li.search-two {
