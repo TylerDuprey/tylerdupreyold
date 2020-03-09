@@ -277,11 +277,11 @@ label,
 }
 
 .drawer li a {
-		display: block;
-    padding: 1rem 0 1rem 30px;
+	display: block;
+	padding: 1rem 0 1rem 30px;
 }
 
-.main-header a:link {
+.main-header a {
     text-decoration: none;
 }
 
@@ -289,21 +289,16 @@ label,
 	color: #555;
 }
 
-.drawer li a:link,
+.drawer li a,
 .drawer li a:visited,
 .drawer li a:active {
     color: #555;
-	transition: color .34s ease-in-out,background-color .34s ease-in-out;
 }
 
-.drawer li.active a:link, 
+.drawer li.active a, 
 .drawer li.active a:visited,
 .drawer li.active a:active {
-		color: #AAA;
-}
-
-.drawer li.search-two {
-	display: none;
+	color: #AAA;
 }
 
 .hero {
