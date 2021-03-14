@@ -1,165 +1,62 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>All Tutorials | TylerDuprey.Com</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>All Tutorials | Free Web Development Tutorials</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!-- Place favicon.ico in the root directory -->
+	<!-- Our project just needs Font Awesome Solid + Brands -->
+	<link href="../assets/css/fontawesome.css" rel="stylesheet">
+	<link href="../assets/css/brands.css" rel="stylesheet">
+	<link href="../assets/css/solid.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>    
+<body>
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
-        <link rel="stylesheet" href="../css/normalize.css">
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,400i,700,700i" rel="stylesheet">
-        <link rel="stylesheet" href="../css/style.min.css">
-    </head>    
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-				<svg xmlns="http://www.w3.org/2000/svg" 
-						 xmlns:xlink="http://www.w3.org/1999/xlink"  
-						 width="960px" 
-						 height="560px" 
-						 viewBox="0 0 960px 560px"
-						 style="display: none;">
-
-					<symbol id="search" class="nav-icon" viewbox="0 0 100 100">
-						<path class="icon-path icon" d="M100,92.7c0-1.9-0.7-3.8-2.1-5.2L79.7,69.3c5.4-7.4,8.3-16.3,8.1-25.4C88,32.2,83.3,21,74.9,12.8
-							c-8.1-8.4-19.4-13-31-12.8C32.2-0.2,21,4.5,12.8,12.8l0,0C4.5,21-0.2,32.2,0,43.9c-0.2,11.7,4.4,22.9,12.8,31
-							C21,83.3,32.2,88,43.9,87.8c9.1,0.2,18.1-2.7,25.4-8.1l18.2,18.2c2.9,2.9,7.5,2.9,10.3,0C99.2,96.5,100,94.6,100,92.7 M64.6,23.2
-							c5.6,5.4,8.7,12.9,8.5,20.7c0.1,7.6-2.8,14.9-8.2,20.3l-0.3,0.4L64.3,65c-5.4,5.4-12.7,8.3-20.4,8.2c-7.8,0.1-15.3-2.9-20.7-8.5
-							c-5.6-5.4-8.7-12.9-8.5-20.7c-0.1-7.8,3-15.3,8.5-20.7l0,0c5.4-5.6,12.9-8.7,20.7-8.5C51.7,14.5,59.2,17.6,64.6,23.2z"/>
-					</symbol>
-
-					<symbol id="arrow" viewbox="0 0 100 100">
-						<g id="Layer_1">
-							<path class="arrow-icon" fill="#FFFFFF" d="M31.3,97.5c-2.6,0-5.1-1-7.1-2.9c-3.9-3.9-3.9-10.3,0-14.2L54.5,50L24.2,19.6c-3.9-3.9-3.9-10.3,0-14.2
-								s10.3-3.9,14.2,0l37.5,37.5c1.9,1.9,2.9,4.4,2.9,7.1s-1.1,5.2-2.9,7.1L38.4,94.6C36.4,96.5,33.8,97.5,31.3,97.5z"/>
-						</g>
-					</symbol>
-					
-					<symbol id="about" viewbox="0 0 100 100">
-						<g>
-							<path class="icon-path" d="M85.3,0H14.7C6.6,0,0,6.6,0,14.7v70.6C0,93.4,6.6,100,14.7,100h70.6c8.1,0,14.7-6.6,14.7-14.7V14.7
-								C100,6.6,93.4,0,85.3,0z M50,16.1c7.4,0,13.3,6,13.3,13.3s-6,13.3-13.3,13.3s-13.3-6-13.3-13.3S42.6,16.1,50,16.1z M70.8,83.8h-15
-								H44.3H29.2V69.4c0-12.3,7.7-22.3,17.3-22.3h6.9c9.6,0,17.3,10,17.3,22.3C70.8,69.4,70.8,83.8,70.8,83.8z"/>
-						</g>
-					</symbol>
-					
-					<symbol id="tutorials_icon" viewbox="0 0 100 100">
-						<path class="icon-path" d="M50,0C22.3,0,0,22.3,0,50s22.3,50,50,50s50-22.3,50-50S77.7,0,50,0z M76.7,51.1L34.2,78.3
-							c-0.9-0.6-1.1-0.6-2-1.1V22.8c0.9-0.6,1.1-0.6,2-1.1l42.4,27.2C76.7,49.9,76.7,50.1,76.7,51.1z"/>
-					</symbol>
-					
-					<symbol id="templates_icon" viewbox="0 0 100 100">
-						<path class="icon-path" style="display:none" d="M50,0C22.3,0,0,22.3,0,50s22.3,50,50,50s50-22.3,50-50S77.7,0,50,0z M76.7,51.1L34.2,78.3
-							c-0.9-0.6-1.1-0.6-2-1.1V22.8c0.9-0.6,1.1-0.6,2-1.1l42.4,27.2C76.7,49.9,76.7,50.1,76.7,51.1z"/>
-						<g>
-							<path class="icon-path" d="M0,35.5v60.3c0,2.3,1.9,4.2,4.2,4.2h91.5c2.3,0,4.2-1.9,4.2-4.2V35.5H0z"/>
-							<path class="icon-path" d="M99.8,27V4.2c0-2.3-1.9-4.2-4.2-4.2H4.2C1.9,0,0,1.9,0,4.2v22.9h99.8V27z M41,15.9c0-2.3,1.9-4.2,4.2-4.2
-								s4.2,1.9,4.2,4.2s-1.9,4.2-4.2,4.2S41,18.3,41,15.9L41,15.9z M17.4,15.9c0-2.3,1.9-4.2,4.2-4.2s4.2,1.9,4.2,4.2s-1.9,4.2-4.2,4.2
-								S17.4,18.3,17.4,15.9L17.4,15.9z"/>
-						</g>
-					</symbol>
-					
-					<symbol id="contact_icon" viewbox="0 0 100 100">
-						<g>
-							<path class="icon-path" d="M9,0h82c4.9,0,9,4.1,9,9v57.8c0,4.9-4.1,9-9,9H80.1l0.5,20.1c0.1,3.9-5,5.3-7,2.1L58.5,75.8H9
-								c-4.9,0-9-4.1-9-9V9C0,4.1,4.1,0,9,0L9,0z M24.3,31.9c-5,0-5-7.6,0-7.6h52.5c5,0,5,7.6,0,7.6H24.3z M24.3,51c-5,0-5-7.6,0-7.6h52.5
-								c5,0,5,7.6,0,7.6H24.3z"/>
-						</g>
-					</symbol>
-
-				</svg>
-
-        <!-- HEADER -->
-        <header class="main-header card">
-            <div class="header-container container">
-                <h6 class="logo"><a href="../">Tyler<span>Duprey</span><span>.com</span></a></h6>
-                <a class="search" href="../search/">
-										<svg class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
-											<path class="icon-path" d="M100,92.7c0-1.9-0.7-3.8-2.1-5.2L79.7,69.3c5.4-7.4,8.3-16.3,8.1-25.4C88,32.2,83.3,21,74.9,12.8
-												c-8.1-8.4-19.4-13-31-12.8C32.2-0.2,21,4.5,12.8,12.8l0,0C4.5,21-0.2,32.2,0,43.9c-0.2,11.7,4.4,22.9,12.8,31
-												C21,83.3,32.2,88,43.9,87.8c9.1,0.2,18.1-2.7,25.4-8.1l18.2,18.2c2.9,2.9,7.5,2.9,10.3,0C99.2,96.5,100,94.6,100,92.7 M64.6,23.2
-												c5.6,5.4,8.7,12.9,8.5,20.7c0.1,7.6-2.8,14.9-8.2,20.3l-0.3,0.4L64.3,65c-5.4,5.4-12.7,8.3-20.4,8.2c-7.8,0.1-15.3-2.9-20.7-8.5
-												c-5.6-5.4-8.7-12.9-8.5-20.7c-0.1-7.8,3-15.3,8.5-20.7l0,0c5.4-5.6,12.9-8.7,20.7-8.5C51.7,14.5,59.2,17.6,64.6,23.2z"/>
-										</svg>
-                </a>
-                <input id="trigger-1" class="menu-trigger" type="checkbox">
-                <label for="trigger-1" class="menu">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </label>
-                <nav class="drawer card" role="navigation">
-                    <header>
-											<div class="container">
-                        <h3>Get Premium Tutorials by Treehouse.</h3>
-												<a class="btn" href="https://teamtreehouse.com">Level Up!</a>
-											</div>
-                    </header>
-                    <ul class="main-nav">
-                        <li>
-                            <a href="../about/">
-															<svg class="nav-icon">
-																<use xlink:href="#about"></use>
-															</svg>
-															About
-														</a>
-                        </li>
-                        <li class="active">
-                            <a href="#">
-															<svg class="nav-icon">
-																<use xlink:href="#tutorials_icon"></use>
-															</svg>
-															Tutorials
-														</a>
-                        </li>
-                        <li>
-                            <a href="../templates/">
-															<svg class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
-																<style type="text/css">
-																	.themes-st0{display:none;}
-																</style>
-																<path class="icon-path themes-st0" d="M50,0C22.3,0,0,22.3,0,50s22.3,50,50,50s50-22.3,50-50S77.7,0,50,0z M76.7,51.1L34.2,78.3
-																	c-0.9-0.6-1.1-0.6-2-1.1V22.8c0.9-0.6,1.1-0.6,2-1.1l42.4,27.2C76.7,49.9,76.7,50.1,76.7,51.1z"/>
-																<g>
-																	<path class="icon-path" d="M0,35.5v60.3c0,2.3,1.9,4.2,4.2,4.2h91.5c2.3,0,4.2-1.9,4.2-4.2V35.5H0z"/>
-																	<path class="icon-path" d="M99.8,27V4.2c0-2.3-1.9-4.2-4.2-4.2H4.2C1.9,0,0,1.9,0,4.2v22.9h99.8V27z M41,15.9c0-2.3,1.9-4.2,4.2-4.2
-																		s4.2,1.9,4.2,4.2s-1.9,4.2-4.2,4.2S41,18.3,41,15.9L41,15.9z M17.4,15.9c0-2.3,1.9-4.2,4.2-4.2s4.2,1.9,4.2,4.2s-1.9,4.2-4.2,4.2
-																		S17.4,18.3,17.4,15.9L17.4,15.9z"/>
-																</g>
-															</svg>
-															Templates
-														</a>
-                        </li>
-                        <li>
-                            <a href="../contact/">
-															<svg class="nav-icon">
-																<use xlink:href="#contact_icon"></use>
-															</svg>
-															Contact
-														</a>
-                        </li>
-                        <li id="search-two">
-                            <a href="../search/">
-															<svg class="nav-icon">
-																<use xlink:href="#search"></use>
-															</svg>
-															Search
-														</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <nav class="breadcrumbs container"><a href="../">Home</a><svg width="1rem" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve"><g id="Layer_2"></g><g id="Layer_1"><path fill="#1695A3" d="M31.3,97.5c-2.6,0-5.1-1-7.1-2.9c-3.9-3.9-3.9-10.3,0-14.2L54.5,50L24.2,19.6c-3.9-3.9-3.9-10.3,0-14.2
-		s10.3-3.9,14.2,0l37.5,37.5c1.9,1.9,2.9,4.4,2.9,7.1s-1.1,5.2-2.9,7.1L38.4,94.6C36.4,96.5,33.8,97.5,31.3,97.5z"/></g></svg>Tutorials</nav>
+	<!-- HEADER -->
+	<header class="main-header card">
+		<div class="header-container container">
+			<div>
+				<a class="fa-icon logo" href="../">
+					<div>
+						<span class="logo-text">TylerDuprey.com</span><br>
+						<span class="tagline">Free Web Development Tutorials</span>
+					</div>
+				</a>
+			</div>
+			<input id="trigger-1" class="menu-trigger" type="checkbox">
+			<label for="trigger-1" class="menu">
+				<div></div>
+				<div></div>
+				<div></div>
+			</label>
+			<nav class="drawer card" role="navigation">
+				
+				<ul>
+					<li>
+						<a class="fa-icon about-link" href="../about/">About</a>
+					</li>
+					<li>
+						<a class="fa-icon tutorials-link" href="#">Tutorials</a>
+					</li>
+					<li>
+						<a class="fa-icon contact-link" href="../contact/">Contact</a>
+					</li>
+					<li class="search-two"><a class="fa-icon search-link" href="#">Search</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+        <nav class="breadcrumbs container"><ul><li class="fa-icon breadcrumb-parent"><a href="../">Home</a></li><li>Tutorials</li></ul></nav>
         
         <div class="main-container container">
             <!-- MAIN --> 
@@ -171,130 +68,120 @@
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/youtube-pen.JPG" alt="" />
-                                    <div class="obfuscator"></div>
+                                    <i class="fab fa-youtube"></i>
                                 </header>
-                                <h3>Embed a Fluid Width YouTube Video</h3>
+                                <h3>Embed a Responsive and Fluid Width YouTube Video</h3>
                                 <p>In this video, we'll embed a youtube video into our web page and set it's width and height to maintain a 16:9 ratio at viewport sizes.</p>
                                 <footer>
-                                    <a class="btn" href="fluid-youtube-video/">Start Tutorial</a>
+                                    <a class="fa-icon btn" href="fluid-youtube-video/">Start Tutorial</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/article-card-pen.JPG" alt="" />
-                                    <div class="obfuscator"></div>
+                                    <i class="fas fa-images"></i>
                                 </header>
-                                <h3>Design an Article Card</h3>
+                                <h3>Design a Featured Blog Article Card</h3>
                                 <p>In this tutorial we'll use HTML and CSS to layout a "card" that could be used in a blog site to display a featured articles headline and lede. We' get into the details of CSS layout.</p>
                                 <footer>
-                                    <a class="btn" href="featured-article/">Start Tutorial</a>
+                                    <a class="fa-icon btn" href="featured-article/">Start Tutorial</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/layout-pen.JPG" alt="" />
-                                    <div class="obfuscator"></div>
+                                    <i class="fas fa-parachute-box"></i>
                                 </header>
-                                <h3>Layout a Webpage</h3>
+                                <h3>Layout a Responsive Page with Flexbox</h3>
                                 <p>In this tutorial we build a responsive and two-column HTML page layout with flexbox. This is a versatile way to setup a webpage that holds its shape regardless of content.</p>
                                 <footer>
-                                    <a class="btn" href="layout-a-webpage/">Start Tutorial</a>
+                                    <a class="fa-icon btn" href="layout-a-webpage/">Start Tutorial</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/logo-pen.JPG" alt="" />
-                                    <div class="obfuscator"></div>
+                                    <i class="fas fa-code"></i>
                                 </header>
                                 <h3>Design an HTML Logo</h3>
                                 <p>In this free web development tutorial, we're making a logo with HTML, CSS and the text gradients CSS technique.</p>
                                 <footer>
-                                    <a class="btn" href="design-an-html-logo/">Start Tutorial</a>
+                                    <a class="fa-icon btn" href="design-an-html-logo/">Start Tutorial</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/button-pen.JPG" alt="" />
-                                    <div class="obfuscator"></div>
+                                    <i class="fas fa-mouse"></i>
                                 </header>
                                 <h3>Build Interactive Buttons</h3>
                                	<p>In this free web development tutorial, we&rsquo;re making interactive buttons that look like they&rsquo;re being pressed down when the user clicks.</p>
                                 <footer>
-                                    <a class="btn" href="build-interactive-buttons/">Start Tutorial</a>
+                                    <a class="fa-icon btn" href="build-interactive-buttons/">Start Tutorial</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/responsive-navigation-pen.jpg" alt="" />
-                                    <div class="obfuscator"></div>
+                                    <i class="fas fa-compass"></i>
                                 </header>
                                 <h3>Layout a Responsive Navigation</h3>
                                 <p>In this tutorial we&rsquo;re creating a responsive navigation with a slide out menu on narrow screens. We&rsquo;ll use the "checkbox hack" to keep the project pure HTML and CSS.</p>
                                 <footer>
-                                    <a class="btn" href="../tutorials/responsive-navigation/">Start Tutorial</a>
+                                    <a class="fa-icon btn" href="../tutorials/responsive-navigation/">Start Tutorial</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/gradient-border.JPG" alt="Screenshot of the final result of the border gradient tutorial video" />
-                                    <div class="obfuscator"></div>
+                                    <i class="fas fa-border-style"></i>
                                 </header>
                                 <h3>Design a CSS Border</h3>
                                 <p>In this video, we're going to create a profile photo with a cool gradient border around it. There are a few different ways to create a border gradient but for a rounded element like this, I will demonstrate my favorite technique.</p>
                                 <footer>
-                                    <a class="btn" href="../tutorials/border-gradient/">Start Tutorial</a>
+                                    <a class="fa-icon btn" href="../tutorials/border-gradient/">Start Tutorial</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/walkthrough-pen.JPG" alt="Screenshot of the final result of the border gradient tutorial video" />
-                                    <div class="obfuscator"></div>
+                                    <i class="fas fa-directions"></i>
                                 </header>
                                 <h3>Website Walkthrough</h3>
                                 <p>This is a different video than usual. It was requested that I do a walkthrough of my website and the choices I made. We're going to go over the technology I used, the overall look and feel, as well as the content I create.</p>
                                 <footer>
-                                    <a class="btn" href="../tutorials/website-walkthrough/">Start Tutorial</a>
+                                    <a class="fa-icon btn" href="../tutorials/website-walkthrough/">Start Tutorial</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/coming-soon.jpg" alt="" />
-                                    <div class="obfuscator"></div>
+                                    <small>Coming Soon</small>
                                 </header>
                                 <h3>Create a Dropdown for Your Nav Menu</h3>
                                	<p>Add a dropdown menu to your website navigation with pure CSS! This is a fun an interactive feature that will help us practice absolute positioning and CSS transforms. </p>
                                 <footer>
-                                    <a class="btn disabled" href="#">Coming Soon</a>
+                                    <a class="fa-icon btn disabled" href="#">Coming Soon</a>
                                 </footer>
                             </article>
                         </li>
                         <li class="article-card card">
                             <article class="container">
                                 <header>
-                                    <img src="../img/coming-soon.jpg" alt="" />
-                                    <div class="obfuscator"></div>
+                                    <small>Coming Soon</small>
                                 </header>
                                 <h3>Add Icons to Your Navigation Menu</h3>
                                 <p>Enhance a website navigation menu with SVG icons. Navigation icons will add a layer of professionalism to your website and the process for adding them couldn&rsquo;t be easier!</p>
                                 <footer>
-                                    <a class="btn disabled" href="../tutorials/responsive-navigation/">Coming Sooon</a>
+                                    <a class="fa-icon btn disabled" href="../tutorials/responsive-navigation/">Coming Sooon</a>
                                 </footer>
                             </article>
                         </li>
@@ -305,17 +192,7 @@
             <!-- MAIN ASIDE --> 
             <aside class="main-aside">
                 
-                <section>
-                    <article>
-												<header>
-                        	<h3>Build Websites Faster</h3>
-												</header>
-                        <p class="container">Hit the ground running with my premium starter templates.</p>
-												<footer class="container">
-                        	<a class="btn" href="../templates/">View Templates</a>
-												</footer>
-                    </article>
-                </section>
+                
                 <section>
 										<article>
 												<header>
@@ -324,7 +201,7 @@
 												<p class="container">Join the email list and get notified when a new tutorial is posted!</p>
 												<form class="container"  action="https://formspree.io/tyler@tylerduprey.com" method="POST">
 														<input type="email" placeholder="email@example.com" name="email" required />
-														<button type="submit">Sign Up</button>
+														<button type="submit" class="fa-icon">Sign Up</button>
 												</form>
 										</article>
                 </section>
@@ -336,7 +213,7 @@
                         <h3 class="container">About Tyler Duprey</h3>
                         <p class="container">Welcome to my personal website! I&rsquo;m passionate about web design and sharing my knowledge with other designers and developers.</p>
 												<footer class="container">
-                        	<a class="btn" href="../about/">More About Me</a>
+                        	<a class="fa-icon btn" href="../about/">More About Me</a>
 												</footer>
                     </article>
                 </section>

@@ -95,6 +95,10 @@ textarea {
 /* ====================================================================================================================================================
    Base Styles
    ==================================================================================================================================================== */
+@font-face {
+  font-family: "junegull";
+  src: url("../fonts/junegull.woff");
+}
 
 * {
     box-sizing: border-box;
@@ -108,12 +112,13 @@ body {
 
 body {
     min-height: 100vh;
-		min-width: 320px;
-    font-family: 'Open Sans', Arial, sans-serif;
-    color: #777;
+	min-width: 320px;
+    font-family: Arial, sans-serif;
+    color: #555;
     background-color: #FAFAFA;
-		display: flex;
-		flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	font-size: 18px;
 }  
 
 img,
@@ -139,6 +144,16 @@ label,
    Layout Styles
    ==================================================================================================================================================== */
 
+.stick-to-top {
+	position: -webkit-sticky;
+	position: sticky;
+    z-index: 997;
+	top: -1px;
+}
+
+.home .main-container {
+	padding-top: 4rem;		
+}
 .container {
 	margin: 0 auto;
 	width: 95%;
@@ -147,13 +162,12 @@ label,
 .main-header {
     padding: 1rem 0;
     background-color: #FFF;
-    position: relative;
-    z-index: 997;
 }
 
 .header-container {
     display: flex;
     align-items: center;
+	justify-content: space-between;
 }
 
 .main-container {
@@ -263,38 +277,102 @@ label,
 }
 
 .drawer li a {
-		display: block;
-    padding: 1rem 0 1rem 30px;
+	display: block;
+	padding: 1rem 0 1rem 30px;
 }
 
-.drawer li a:link {
+.main-header a {
     text-decoration: none;
 }
 
-.drawer li a:link,
+.search .search-link {
+	color: #555;
+}
+
+.drawer li a,
 .drawer li a:visited,
 .drawer li a:active {
-    color: #777;
-		transition: color .15s ease-in-out;
+    color: #555;
 }
 
-.drawer li.active a:link, 
+.drawer li.active a, 
 .drawer li.active a:visited,
-.drawer li.active a:active, {
-		color: #AAA;
-}
-
-.drawer li.search-two {
-	display: none;
+.drawer li.active a:active {
+	color: #AAA;
 }
 
 .hero {
+	background-color: #1695A3;
+	background-image: linear-gradient(#1695A3, #225378 50%);
+	padding: 2rem;
+	overflow: hidden;
+}
+
+.hero .hero-container {
+	z-index: 10;
+	position: relative;
+}
+
+.hero h1 {
+	color: #fff;
+	margin: 0 auto;
+	letter-spacing: .1rem;
+	font-weight: normal;
+	text-align: center;
+	font-size: 2rem;
+	line-height: 1;
+}
+
+.hero h1 i {
+	font-size: 4rem;
+	display: block;
+	margin: 0 auto;
+	color: #FFF;
+	  -webkit-text-fill-color: #225378; /* Will override color (regardless of order) */
+	  -webkit-text-stroke-width: 3px;
+	  -webkit-text-stroke-color: #FFF;
+}
+
+.hero p,
+.hero a,
+.hero a:visited {
+	color: #fff;
+	font-weight: normal;
+}
+
+.hero .btn-container .fa-icon.tutorials,
+.hero .btn-container .fa-icon.templates {
+	justify-content: center;
+	display: flex;
+	font-size: .87rem;
+	position: relative;
+	border-bottom: 5px solid;
+	border-right: 5px solid;
+} 
+
+.hero .btn-container .fa-icon.tutorials {
+	border-color: #117782;
+}
+
+.hero .btn-container .fa-icon.templates {
+	border-color: #B05E00;
+}
+
+.hero .btn-container a.fa-icon.tutorials:active {
+	border-color: #1695A3;
+}
+
+.hero .btn-container .fa-icon.templates:active {
+	border-color: #EB7F00;
+}
+
+.slider-container {
     background-color: #CCC;
     border-radius: 10px;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding-top: 90%;
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 90%;
 }
 
 /* Main Section */
@@ -331,15 +409,28 @@ label,
 
 .article-card {
     margin: 1rem 0;
-		background-color: #FFF;
+	background-color: #FFF;
 }
 
-.article-card .obfuscator {
+.article-card header {
     background-color: #225378;
+	color: #FFF;
+	padding: 20%;
+	border-radius: 5px;
+	font-size: 3rem;
+	text-align: center;
 }
 
-.article-card:nth-of-type(even) .obfuscator {
+.article-card header small {
+	font-size: 1rem;
+}
+
+.article-card:nth-of-type(2n) header {
     background-color: #1695A3;
+}
+
+.article-card:nth-of-type(3n) header {
+    background-color: #EB7F00;
 }
 
 .article-card article {
@@ -478,18 +569,28 @@ main.two-column-even > aside {
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 		font-size: 1.25rem;
-		color: #777;
+		color: #555;
 		font-weight: 700;
 }
 
-.breadcrumbs > a,
-.breadcrumbs > a:visited {
-		color: #777;
+.breadcrumbs ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
 }
 
-.breadcrumbs > svg {
-		width: .85rem;
-		margin: 0 .5rem;
+.breadcrumbs li.breadcrumb-parent:after {
+	margin-left: .5rem;
+	margin-right: .5rem;
+	content: '\f054';
+}
+
+.breadcrumbs a,
+.breadcrumbs a:visited {
+	text-decoration: none;
+	color: #1695A3;
 }
 
 .card {
@@ -508,22 +609,27 @@ main.two-column-even > aside {
 }
 
 .slider > a:nth-of-type(odd) {
-	  background-image: linear-gradient(to right, #225378, #1695A3);
+	background-image: linear-gradient(to right, #225378, #1695A3);
+	color: #1695A3;	
 }
 
 .slider > a:nth-of-type(even) {
-	  background-image: linear-gradient(to right, #1695A3, #225378);
+	background-image: linear-gradient(to right, #1695A3, #225378);
+	color: #225378;
 }
 
-.right-arrow,
-.left-arrow {
+.arrow {
 	position: absolute;
 	top: 45%;
 	width: 25px;
 	height: 25px;
-	z-index: 10;
 	opacity: 0;
 	transition: opacity .35s ease-in-out;
+	z-index: 10;
+}
+
+.arrow:before {
+	z-index: 100;
 }
 
 .right-arrow {
@@ -535,22 +641,15 @@ main.two-column-even > aside {
 	transform: rotate(180deg);
 }
 
-.left-arrow,
-.right-arrow,
-.arrow-icon {
-	width: 25px;
-	height: 25px;
-}
-
 .slide {
-		display: block;
+	display: block;
     position: absolute;
     top: 0;
     left: 100%;
     width: 100%;
     height: 100%;
     transition: left .6s .6s ease-in-out;
-		text-decoration: none;
+	text-decoration: none;
 }
 
 .prev-slide {
@@ -559,6 +658,9 @@ main.two-column-even > aside {
 
 .slide .container {
 	height: 100%;
+}
+
+.slide article {
 	color: #FFF;
 }
 
@@ -572,9 +674,10 @@ main.two-column-even > aside {
 	width: 70%;
 	height: 90%;
 	z-index: 1;
-	background-size: 90%;
-	background-position: center center;
-	background-repeat: no-repeat;
+	font-size: 10rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .slide article {
@@ -596,29 +699,17 @@ main.two-column-even > aside {
 	background-color: rgba(0,0,0,.45);
 }
 
-.slide-one .slide-image {
-	background-image: url('../img/layout.JPG');
-}
-
-.slide-two .slide-image {
-	background-image: url('../img/logo-design.svg');
-}
-
-.slide-three .slide-image {
-	background-image: url('../img/interactive-button.svg');
-}
-
 .slide-image {
 		opacity: 0;
 }
 
-.slide h1 {
-		margin: 0 .5rem;
-		opacity: 0;
-		line-height: 0;
-		overflow: hidden;
-		letter-spacing: 2px;
-		color: #FFF;
+.slide h2 {
+	margin: 0 .5rem;
+	opacity: 0;
+	line-height: 0;
+	overflow: hidden;
+	letter-spacing: 2px;
+	color: #FFF;
 }
 
 .slide p {
@@ -695,19 +786,23 @@ button:active,
 
 button.disabled,
 .btn.disabled {
-	background-color: #777;
+	background-color: #555;
 	box-shadow: none;
 	cursor: not-allowed;
 }
 
 button.disabled:active,
 .btn.disabled:active {
-	background-color: #777;
+	background-color: #555;
 	box-shadow: none;
 }
 
 .btn + .btn {
 	background-color: #225378;
+}
+
+.hero .btn + .btn {
+	background-color: #EB7F00;
 }
 
 .btn-bar {
@@ -768,7 +863,7 @@ input[type="email"]:valid {
 }
 
 input[type="email"]:invalid {
-	border-color: #777;
+	border-color: #555;
 }
 
 p + form input,
@@ -883,7 +978,7 @@ input[name="slides"]:checked + .slide .slide-image {
 		transition: opacity .6s .6s ease-in-out;
 }
 
-input[name="slides"]:checked + .slide h1 {
+input[name="slides"]:checked + .slide h2 {
     opacity: 1;
 		line-height: 2rem;
 		transition: opacity .35s .35s ease-in-out, line-height .35s .35s ease-in-out;
@@ -902,20 +997,36 @@ input[name="slides"]:checked + .slide p {
 
 .logo {
 	margin: 0;
-  padding: 0;
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  order: 2;
+	padding: 0;
+	order: 2;
 	flex: 1;
-	text-align: center;
-	color: #225378;
-  background: -webkit-linear-gradient(left, #225378, #1695A3 50%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+	line-height: 1.1;
 }
 
 .logo a {
 	text-decoration: none;
+	font-size: 1.75rem;
+}
+
+.logo-text {
+	text-align: center;
+	color: #225378;
+	background: -webkit-linear-gradient(left, #225378, #1695A3 70%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+}
+
+.tagline {
+	font-size: .84rem;
+	font-family: 'Arial', serif;
+	color: #EB7F00;
+}
+
+.logo-text,
+.tagline {
+	text-align: center;
 }
 
 h1 {
@@ -925,7 +1036,7 @@ h1 {
 h1,
 h2,
 .logo {
-    font-family: 'Fredoka One', Arial, sans-serif;
+	font-family: 'junegull','Verdana',sans-serif;
 }
 
 a {
@@ -939,25 +1050,163 @@ a:active {
     color: #225378;
 }
 
+.fa-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.fa-icon:before,
+.fa-icon:after,
+button[type="submit"].fa-icon:after,
+.fa-icon.twitter-share-button:after,
+.fa-icon.email:after,
+.fa-icon.breadcrumb-parent:after,
+.fa-icon.download:after,
+.hero .btn-container .fa-icon.tutorials:before,
+.hero .btn-container .fa-icon.templates:before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.fa-icon:before,
+.hero .btn-container .fa-icon.tutorials:before,
+.hero .btn-container .fa-icon.templates:before {
+    margin-right: .5rem;
+}
+
+.hero .btn-container .fa-icon.tutorials:after,
+.hero .btn-container .fa-icon.templates:after {
+	display: none;	
+}
+
+.fa-icon.btn:after,
+button[type="submit"].fa-icon:after,
+.fa-icon.email:after,
+.fa-icon.download:after {
+    margin-left: .5rem;
+}
+
+.fa-icon.btn:after {
+	content: '\f061';
+}
+
+.hero .btn-container .fa-icon.tutorials:before {
+	content: '\f87c';
+}
+
+.hero .btn-container .fa-icon.templates:before {
+	content: '\f135';	
+}
+
+.fa-icon.twitter-share-button:after {
+    font-family: "Font Awesome 5 Brands";
+	content: '\f099';
+}
+
+.fa-icon.email:after {
+	content: '\f0e0';
+}
+
+.fa-icon.download:after {
+	content: '\f0e0';
+}
+
+.fa-icon.linkedin:after {
+	font-family: "Font Awesome 5 Brands";
+	content: '\f08c';
+}
+
+button[type="submit"].fa-icon:after {
+	content: '\f0e0';	
+}
+
+.fa-icon.logo {
+	position: inherit;
+	display: flex;
+}
+
+.fa-icon.logo:before {
+	content: '\f135';
+	font-size: 2.5rem;
+}
+
+.fa-icon.about-link:before {
+    content: "\f406";
+}
+
+.fa-icon.tutorials-link:before {
+    content: "\f144";
+}
+
+.fa-icon.templates-link:before {
+    content: "\f019";
+}
+
+.fa-icon.templates-link:before {
+    content: "\f019";
+}
+
+.fa-icon.contact-link:before {
+    content: "\f27a";
+}
+
+.fa-icon.search-link:before {
+    content: "\f002";
+}
+
+.fa-icon.arrow {
+	position: absolute;
+}
+
+.fa-icon.arrow:before {
+	content: '\f105';
+	color: #FFF;
+	font-size: 2rem;
+}
+
 /* ====================================================================================================================================================
    Narrow Phones
    ==================================================================================================================================================== */
 
 @media screen and (min-width: 411px) {
-    
-		.hero {
-			padding-top: 60%;
-		}
-	
+	.logo-text {
+		font-size: 1.81rem;
+	}
+	.tagline {
+		font-size: 1rem;
+	}
+	.hero h1 {
+		font-size: 2.7rem;
+		width: 80%;
+	}
+	.slider-container {
+		padding-top: 60%;
+	}
     .article-list ul {
         display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-gap: 1.25rem 1.5rem;
     }
-    
     .article-list > ul li {
         margin: 0;
     }
+}
+
+/* ====================================================================================================================================================
+   Wide Phones
+   ==================================================================================================================================================== */
+
+@media screen and (min-width: 648px) {
+	.hero h1 {
+		font-size: 2.4rem;
+		width: 85%;
+	}
 }
 
 /* ====================================================================================================================================================
@@ -966,9 +1215,71 @@ a:active {
 
 @media screen and (min-width: 768px) {
     
-		.container {
-			width: 90%;
-		}
+	body {
+		font-size: 16px;
+	}
+	
+	.container {
+		width: 90%;
+	}
+	
+	.hero {
+		position: relative;
+	}
+	
+	.hero h1 {
+		font-size: 2rem;
+	}
+	
+	.hero:before,
+	.hero:after {
+		font-family: 'Font Awesome 5 Free';
+		-webkit-font-smoothing: antialiased;
+		position: absolute;
+		color: #fff;
+		opacity: .1;
+	}
+	
+	.hero:after {
+		bottom: -5rem;
+		right: -5rem;
+		font-size: 20rem;
+		content: '\f6fc';
+	}
+	
+	.hero:before {
+		top: -2rem;
+		left: -2rem;
+		font-size: 10rem;
+		content: '\f7da';
+	}
+	
+	.hero .btn-container .fa-icon.tutorials,
+	.hero .btn-container .fa-icon.templates {
+		display: inline-flex;
+	} 
+	
+	.hero-container {
+		width: 68%;
+		margin: 0 auto;
+	}
+	
+	.hero-container h1 {
+		width: 95%;
+	}
+	
+	.hero-container p {
+		text-align: center;
+	}
+	
+	.btn-container {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.hero .btn + .btn {
+		margin-left: 1rem;
+	}
 	
     .main-container {
         display: grid;
@@ -976,9 +1287,9 @@ a:active {
         grid-column-gap: 3rem;
     }
 	
-		h1 {
-				margin-top: .25rem;
-		}
+	h1 {
+			margin-top: .25rem;
+	}
     
     .menu {
         display: none;
@@ -1044,6 +1355,7 @@ a:active {
         border-radius: 5px;
 				background-color: #FFF;
 				transition: background-color .35s ease-in-out;
+		font-size: 1rem;
     }
 	
 		.drawer li a {
@@ -1059,7 +1371,7 @@ a:active {
         box-shadow: none;
         margin-top: 0;
         padding: 0;
-        color: #777;
+        color: #555;
     }
 	
 		.drawer li.search-two {
@@ -1081,7 +1393,7 @@ a:active {
 				width: 80%;
 		}
 	
-		.slide h1 {
+		.slide h2 {
 				margin-bottom: 0;
 				font-size: 1rem;
 		}
@@ -1090,7 +1402,7 @@ a:active {
 			font-size: .85rem;
 		}
 	
-		input[name="slides"]:checked + .slide h1 {
+		input[name="slides"]:checked + .slide h2 {
 				line-height: 1.5;
 		}
 
@@ -1161,11 +1473,28 @@ a:active {
 }
 
 /* ====================================================================================================================================================
+   Wide Tablet -width Styles
+   ==================================================================================================================================================== */
+
+@media screen and (min-width: 894px) {
+	.hero h1 {
+		width: 80%;
+	}
+}
+
+/* ====================================================================================================================================================
    Desktop Screens
    ==================================================================================================================================================== */
 
 @media screen and (min-width: 1024px) {
-    
+	.hero .btn-container .fa-icon.tutorials,
+	.hero .btn-container .fa-icon.templates {
+		font-size: 1rem;
+	} 
+	
+    .logo {
+		text-align: left;
+	}
 		.header-container,
 		.breadcrumbs,
 		.main-container,
@@ -1187,6 +1516,14 @@ a:active {
 			cursor: default;
 		}
 	
+	.hero-container {
+		width: 55%;
+	}
+	
+	.hero-container h1 {
+		width: 85%;
+	}
+	
     .main-container {
         grid-column-gap: 4rem;
     }
@@ -1203,10 +1540,11 @@ a:active {
 		}
 	
 		.header-container {
-				flex-direction: row;
+			flex-direction: row;
+			justify-content: space-between;
 		}
     
-    .hero {
+    .slider-container {
         padding-top: 65%;
     }
 	
@@ -1231,7 +1569,7 @@ a:active {
 				display: none;
 		}
 	
-		.slide h1 {
+		.slide h2 {
 				margin-bottom: .5rem;
 				font-size: 1.1rem;
 		}	
@@ -1255,19 +1593,71 @@ a:active {
    ==================================================================================================================================================== */
 
 @media screen and (min-width: 1366px) {
-    
-		.header-container,
-		.breadcrumbs,
-		.main-container,
-		.footer-container {
-			width: 80%;
-		}
+    body {
+		font-size: 14px;
+	}
+	
+	.header-container,
+	.breadcrumbs,
+	.main-container,
+	.footer-container {
+		width: 80%;
+	}
+	
+	.hero {
+		padding-top: 8%;
+		padding-bottom: 8%;
+	}
+	
+	.hero:after {
+		bottom: -10rem;
+		right: -10rem;
+		font-size: 40rem;
+		content: '\f6fc';
+	}
+	
+	.hero:before {
+		top: -5rem;
+		left: -2rem;
+		font-size: 20rem;
+		content: '\f7da';
+	}
+	
+	.hero-container {
+		width: 65%;
+	}
+	
+	.hero-container h1 {
+		width: 70%;
+		font-size: 1.75rem;
+		line-height: 1.1;
+	}
+	
+	.hero-container h1 i {
+		font-size: 6rem;
+	}
+	
+	.hero-container p {
+		font-size: 1.25rem;
+	}
+	
+	.hero .btn-container .fa-icon.tutorials,
+	.hero .btn-container .fa-icon.templates {
+		padding: 1rem .75rem;
+		font-size: 1.25rem;
+	} 
+	
+	.hero .btn-container .fa-icon.tutorials,
+	.hero .btn-container .fa-icon.templates {
+		font-size: 1.5rem;
+		margin-right: 1rem;
+	}
 	
     .main-container {
         grid-column-gap: 6rem;
     }
 	
-		.slide h1 {
+		.slide h2 {
 				font-size: 1.25rem;
 		}
 	
@@ -1277,23 +1667,53 @@ a:active {
 }
 
 /* ====================================================================================================================================================
+   Large Desktop Monitor -width Styles
+   ==================================================================================================================================================== */
+
+@media screen and (min-width: 1200px) {
+	.hero h1 {
+		width: 100%;
+	}
+}
+
+/* ====================================================================================================================================================
    Max-width Styles
    ==================================================================================================================================================== */
 
 @media screen and (min-width: 1400px) {
 		
-		.header-container,
-		.breadcrumbs,
-		.main-container,
-		.footer-container {
-				max-width: 1260px;
+	.header-container,
+	.breadcrumbs,
+	.main-container,
+	.footer-container {
+			max-width: 1260px;
     }
 	
-		.main-container {
-				grid-column-gap: 8rem;
-		}
+	.hero p {
+		margin-left: auto;
+		margin-right: auto;
+		width: 85%;
+	}
 	
-		.slide h1 {
+	.hero:after {
+		bottom: -12rem;
+		right: -12rem;
+		font-size: 40rem;
+		content: '\f6fc';
+	}
+	
+	.hero:before {
+		top: -5rem;
+		left: -2rem;
+		font-size: 20rem;
+		content: '\f7da';
+	}
+	
+	.main-container {
+			grid-column-gap: 8rem;
+	}
+	
+		.slide h2 {
 				font-size: 1.5rem;
 		}
 	
