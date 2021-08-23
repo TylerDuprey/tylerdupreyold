@@ -1,0 +1,23 @@
+{
+  "name": "tylerduprey",
+  "version": "1.0.0",
+  "description": "A website for free web development tutorials",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "webpack server",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tyler Duprey",
+  "bugs": {
+    "url": "https://github.com/TylerDuprey/tylerduprey/issues"
+  },
+  "homepage": "https://github.com/TylerDuprey/tylerduprey#readme",
+  "devDependencies": {
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
+  }
+}
