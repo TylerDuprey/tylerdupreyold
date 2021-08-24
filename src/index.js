@@ -1,3 +1,5 @@
+import "./styles/index.css";
+
 const test = {
   testing: 'test',
   testTwo: 'test-two',
