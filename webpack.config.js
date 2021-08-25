@@ -2,13 +2,19 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 var path = require('path');
 
+let mode = "development";
+
+if(process.env.NODE_ENV === 'production') {
+  mode = production;
+}
+
 module.exports = {
-    mode: "development",
+    mode: mode,
     module: {
       rules: [
         {
-          test: /\.css$/i,
-          use: [MiniCssExtractPlugin.loader, "css-loader"],
+          test: /\.s?css$/i,
+          use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
         },
         {
           test: /\.js$/g,
