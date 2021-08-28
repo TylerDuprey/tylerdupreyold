@@ -1,11 +1,4 @@
-import "./styles/index.css";
-import "./styles/scss/index.scss";
+import {render} from "react-dom";
+import App from "./components/App";
 
-const test = {
-  testing: 'test',
-  testTwo: 'test-twoo',
-  testThree: 'test-thre'
-}
-
-console.log(test);
-console.log('change to save!');
+render(<App />, document.getElementById("root"));
