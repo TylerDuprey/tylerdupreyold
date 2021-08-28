@@ -13,6 +13,7 @@ import TwoColumn from './TwoColumn';
 const App  = () => {
   return (
     <>
+      <h1>Test real time reload</h1>
       <Header />
       <TwoColumn />
       <Footer />

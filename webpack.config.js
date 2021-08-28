@@ -14,6 +14,7 @@ if(process.env.NODE_ENV === 'production') {
 module.exports = {
     mode: mode,
     target: target,
+    entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
       assetModuleFilename: 'images/[hash][ext][query]'
