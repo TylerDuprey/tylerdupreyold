@@ -1,22 +1,21 @@
 import "../styles/normalize.css";
 import "../styles/style.css";
 import "../styles/index.css";
+
 import "../styles/scss/index.scss";
-import profile from '../images/profile-photo.jpg'
 
 import React from 'react';
-import Recipes from './Recipes';
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Footer from './Footer';
+import TwoColumn from './TwoColumn';
 
 const App  = () => {
   return (
     <>
-    <h1>
-      Hello!
-    </h1>
-    <div className="hero" style={{width: '300px',height: '300px'}}>
-      <img src={profile} alt="" />
-    </div>
-    <Recipes />
+      <Header />
+      <TwoColumn />
+      <Footer />
     </>
   );
 };

@@ -1,5 +1,9 @@
 @use 'variables';
 
+:root {
+  --text: #444;
+}
+
 body {
   color: var(--text);
   background-color: variables.$bg;
