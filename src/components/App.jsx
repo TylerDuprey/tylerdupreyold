@@ -1,6 +1,8 @@
+import "../styles/normalize.css";
+import "../styles/style.css";
 import "../styles/index.css";
 import "../styles/scss/index.scss";
-import profile from '../images/profile-photo.jpeg'
+import profile from '../images/profile-photo.jpg'
 
 import React from 'react';
 import Recipes from './Recipes';
