@@ -9,17 +9,3 @@ body {
   background-color: variables.$bg;
   font-size: 18px;
 }
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-button {
-  font-size: 1.5rem;
-}
-
-ul {
-  list-style-image: url('../../images/profile-photo.jpg');
-}

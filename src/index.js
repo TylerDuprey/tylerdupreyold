@@ -11,9 +11,7 @@ render(<App />, document.getElementById("root"));
 		 Video Functionality
 		 ================================ */
 		class Videos {
-			constructor() {
-
-			}
+			constructor() {}
 
 			addIframe() {
 				for(let vid of document.querySelectorAll('.jsVideo')) {
