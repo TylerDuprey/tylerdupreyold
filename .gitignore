@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
 .editorconfig
-dist
+package-lock.json
