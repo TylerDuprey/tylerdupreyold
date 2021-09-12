@@ -5,8 +5,18 @@ const PORT = 5000;
 
 app.use(express.static('public'));
 
+app.use(function forceNoWs(req, res, next) {
+  var host = req.get('Host');
+
+  const hasWWW = host.match(/https?:\/\/www/g).length;
+
+  console.log(hasWWW);
+
+  return next();
+});
+
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Served Static Files');
 });
 
 app.use(function (req, res, next) {
