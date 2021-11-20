@@ -18,5 +18,8 @@
     "url": "https://github.com/TylerDuprey/tylerduprey/issues"
   },
   "homepage": "https://github.com/TylerDuprey/tylerduprey#readme",
-  "dependencies": {}
+  "devDependencies": {
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1"
+  }
 }
