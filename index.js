@@ -13,4 +13,4 @@ app.use(function (req, res, next) {
   res.status(404).sendFile(path.join(__dirname, '/public/404.html'));
 });
 
-app.listen(PORT, () => console.log(`Servers are listening on port: ${PORT}`));
+app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
