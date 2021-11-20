@@ -18,7 +18,5 @@
     "url": "https://github.com/TylerDuprey/tylerduprey/issues"
   },
   "homepage": "https://github.com/TylerDuprey/tylerduprey#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "dependencies": {}
 }
